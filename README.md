@@ -1,0 +1,4 @@
+This repository is meant to demonstrate some latex circuit figures which are completely unnecessary to put such effort into in this course.
+
+- [hw1](hw1/hw1.pdf)
+- [hw2](hw2/hw2.pdf)

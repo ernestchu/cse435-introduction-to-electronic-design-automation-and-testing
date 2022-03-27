@@ -1,0 +1,45 @@
+\documentclass[12pt,answers]{exam}
+\usepackage{fontspec,graphicx,circuitikz,amsmath}
+\setmainfont{Times New Roman}
+
+\headheight 8pt \headsep 20pt \footskip 30pt
+\textheight 9in \textwidth 6.5in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -.35in
+
+\input{assets/defs.tex}
+
+\begin{document}
+\begin{center}
+\LARGE CSE435 Introduction to EDA \& Testing - Spring 2022 \\
+\Large Homework Assignment \#2 \\
+\Large Shao-Hsuan Chu - B073040018 \\
+\end{center}
+\bigskip
+
+\begin{questions}
+  \question (25\%) For ECL NOR gates as shown, if the outputs of two NOR gates short together, analyze electrically the resultant output behavior (wired AND? wired OR). Explain why?
+  \input{assets/q1.tex}
+  \begin{solution}
+  \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (25\%) In Problem 1, if there is a defect that the value of $R_C$ of the gate X = $\overline{\text{A+B}}$ is increased by 100 times. If the patterns can be applied to A, B and the output can be observed at X, derive a test pattern to detect this defect.
+  \begin{solution}
+  \input{solutions/q2.tex}
+  \end{solution}
+
+  \question (25\%) Derive test patterns to detect the transistor M1 stuck-open fault in the following NAND gate.
+  \input{assets/q3.tex}
+  \begin{solution}
+  \input{solutions/q3.tex}
+  \end{solution}
+
+  \question (25\%) Try to derive test pattern for the fault F(sa0). For the derived pattern, try to identify what other multiple faults of multipliticity = 2 can be detected.
+  \input{assets/q4.tex}
+  \begin{solution}
+  \input{solutions/q4.tex}
+  \end{solution}
+\end{questions}
+\end{document}
+

@@ -1,0 +1,5 @@
+In order to find the stuck-at-1 fault, the first and second (top-down order) inputs of the final \textbf{NAND} gate must be non-dominant, which is $1$, and the third input must be $0$. The third input's value of $0$ indicates $\overline{B \cdot C} = 0$ and thus $B = C = 1$. We then need $A = 0$ to make the first input $1$. However, we also want $A = 1$ to make the second input $1$, which contradicts the requirement above. As a result, this fault is not discoverable, i.e., a redundant fault.
+
+\textbf{Answer:} The test pattern does not exist.
+
+

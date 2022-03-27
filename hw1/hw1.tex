@@ -1,0 +1,49 @@
+\documentclass[12pt,answers]{exam}
+\usepackage{fontspec,graphicx,circuitikz,amsmath}
+\setmainfont{Times New Roman}
+
+\headheight 8pt \headsep 20pt \footskip 30pt
+\textheight 9in \textwidth 6.5in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -.35in
+
+\begin{document}
+\begin{center}
+\LARGE CSE435 Introduction to EDA \& Testing - Spring 2022 \\
+\Large Homework Assignment \#1 \\
+\Large Shao-Hsuan Chu - B073040018 \\
+\end{center}
+\bigskip
+
+\begin{questions}
+  \question (25\%) If the yield of good dice is 90\%, and we want a defect level not to exceed 0.1\%, what level of testing in terms of fault coverage must be achieved?
+  \begin{solution}
+  \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (50\%) Given the market entry time verse revenue curves as shown in Figure 1, fill in the following formula
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{assets/q2.png}
+  \end{center}
+  \begin{parts}
+    \part (25\%) Lost Revenue = Total Expected Revenue * [\quad ]. The answer should be in term of $d$ and $w$. $d$ is the delay entry, $2w$ is the product life. The two market growth rates are the same.
+    \begin{solution}
+    \input{solutions/q2-a.tex}
+    \end{solution}
+
+    \part (25\%) Given a product with total expected revenue \$100M, product life is 20 months. What is the revenue loss due to the one month late to the market?
+    \begin{solution}
+    \input{solutions/q2-b.tex}
+    \end{solution}
+  \end{parts}
+
+  \question (25\%) Try to derive the test pattern for the fault $f$ (sa1). Explain your result. Try to simplify the circuit.
+
+    \input{assets/q3.tex}
+    \begin{solution}
+    \input{solutions/q3.tex}
+    \input{solutions/q3-simplified-circuit.tex}
+    \end{solution}
+\end{questions}
+\end{document}
+

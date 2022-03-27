@@ -1,0 +1,81 @@
+\begin{center}
+\begin{circuitikz}[line width=.8pt]
+  \draw
+
+  %%%%% nand 1
+
+  (0,0)
+  node[label=left: A] {}
+  --
+  (3,0)
+  node[nand port, anchor=in 1] (nand1) {}
+
+  (0,52 |- nand1.in 2)
+  node[label=left: B] {}
+  --
+  (nand1.in 2)
+
+  %%%%% nand 2
+
+  (1.5,-1.5)
+  node[not port, anchor=out, scale=0.4] (not1) {}
+  --
+  (3,-1.5)
+  node[nand port, anchor=in 1] (nand2) {}
+
+  (not1.in)
+  to[short, -*]
+  ++(0, 1.5)
+
+  (0,52 |- nand2.in 2)
+  node[label=left: C] {}
+  --
+  (nand2.in 2)
+
+  %%%%% nand 3
+
+  (2.5,52 |- nand1.in 2)
+  to[short, *-]
+  (2.5,-3)
+  --
+  (3,-3)
+  node[nand port, anchor=in 1] (nand3) {}
+
+  (2,52 |- nand2.in 2)
+  to[short, *-]
+  (2,52 |- nand3.in 2)
+  --
+  (nand3.in 2)
+
+  %%%%% nand 4
+
+  (nand2.out)
+  --
+  ++(1,0)
+  node[nand port, anchor=in 2, number inputs=3] (nand4) {}
+
+  (nand1.out)
+  |-
+  (nand4.in 1)
+
+  (nand3.out)
+  |-
+  (nand4.in 3)
+
+  %%%%% F
+
+  (nand4.out)
+  --
+  ++(0.5,0)
+  node[label=right: F] {}
+
+  %%%%% sa1
+
+  (5.45,-2.75)
+  node[label=center: $f$(sa1)] {}
+
+  (4.55,-2.7)
+  node[label=center: $\times$] {}
+  ;
+\end{circuitikz}
+\end{center}

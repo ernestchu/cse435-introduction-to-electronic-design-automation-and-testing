@@ -1,0 +1,10 @@
+The defect level $\textbf{DL}$ can be obtained by $\textbf{DL} = 1 - \textbf{Y} ^ {1 - \textbf{T}}$, where $\textbf{Y}$ is the yield, indicating the manufacturing capability, and $\textbf{T}$ is the fault coverage, indicating the testing capability.
+\begin{align*} 
+0.001                             &\geq 1 - 0.9 ^ {1 - \textbf{T}} \\
+0.9 ^ {1 - \textbf{T}}            &\geq 1 - 0.001 \\
+0.9 ^ {1 - \textbf{T}}            &\geq 0.999 \\
+\log_{0.9} 0.9 ^ {1 - \textbf{T}} &\leq \log_{0.9} 0.999 \\
+1 - \textbf{T}                    &\leq 0.0095 \\
+\textbf{T}                        &\geq 0.9905 = 99.05\%
+\end{align*}
+\textbf{Answer:} The fault coverage $\textbf{Y}$ must be at least 99.05\%

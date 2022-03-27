@@ -1,0 +1,3 @@
+The stuck-open fault in the charging unit (pull-up, PU) makes the output never charged to 1 after discharge to 0. For example, at the first time frame, we discharge the circuit by setting (A, B) to (1, 1). Then we switch B to 0. If the transistor M1 functioned normally, it should charge the output since the ground wire is cut-off by an NMOS. If 0 is instead observed at Y, then there's a stuck-open fault at M1.
+
+\textbf{Answer:} At time frame 1, (A, B) = (1, 1). At time frame 2, (A, B) = (1, 0).
