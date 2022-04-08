@@ -1,0 +1,66 @@
+\documentclass[12pt,answers]{exam}
+\usepackage{fontspec,graphicx,caption,circuitikz,amsmath,ragged2e}
+\setmainfont{Times New Roman}
+
+\headheight 8pt \headsep 20pt \footskip 30pt
+\textheight 9in \textwidth 6.5in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -.35in
+
+\input{assets/defs.tex}
+
+\begin{document}
+\begin{center}
+\LARGE CSE435 Introduction to EDA \& Testing - Spring 2022 \\
+\Large Homework Assignment \#3 \\
+\Large Shao-Hsuan Chu - B073040018 \\
+\end{center}
+\bigskip
+
+\begin{questions}
+  \question (20\%) For a D F/F of the following truth table, try to derive a set of function pattern to test this F/F. What functional fault can be detected by your derived pattern.
+  \input{assets/dff.tex}
+  \begin{solution}
+  % \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (20\%) For a T F/F of the following truth table, try to derive a set of function pattern to test this F/F. What functional fault can be detected by your derived pattern.
+  \input{assets/tff.tex}
+  \begin{solution}
+  % \input{solutions/q2.tex}
+  \end{solution}
+
+  \question (20\%) For a J-K F/F of the following truth table, try to derive a set of function pattern to test this F/F. What functional fault can be detected by your derived pattern.
+  \input{assets/jkff.tex}
+  \begin{solution}
+  % \input{solutions/q3.tex}
+  \end{solution}
+
+  \question PLA Faults, Given f1=AB+BC+CA+$\overline{\text{A}}\,\overline{\text{B}}$+$\overline{\text{B}}\,\overline{\text{C}}$+$\overline{\text{C}}\,\overline{\text{A}}$, f2=AB+BC+CA. \\
+(20\%) Please draw AND-Array and OR-Array of Missing Crosspoint Faults in AND-OR Plane, and show the equivalent stuck fault representation.
+  \begin{parts}
+    \part Missing Crosspoint Faults: Missing C in AND Plane.
+    \begin{solution}
+    % \input{solutions/q4.tex}
+    \end{solution}
+    \part Missing Crosspoint Faults: Missing {P1, P3, P5} in f1 in OR Plane.
+    \begin{solution}
+    % \input{solutions/q4.tex}
+    \end{solution}
+  \end{parts}
+
+  \question PLA Faults, Given f1=AB+BC+CA, f2=$\overline{\text{A}}\,\overline{\text{B}}$+$\overline{\text{B}}\,\overline{\text{C}}$+$\overline{\text{C}}\,\overline{\text{A}}$. \\
+  (20\%) Please draw AND-Array and OR-Array of Extra Crosspoint Faults in AND-OR Plane, and show the equivalent stuck fault representation.
+  \begin{parts}
+    \part Extra Crosspoint Faults: Extra $\overline{\text{B}}$ in P1, A in P2, C in P3 in AND Plane.
+    \begin{solution}
+    % \input{solutions/q4.tex}
+    \end{solution}
+    \part Extra Crosspoint Faults: Extra {P4, P5, P6} in f2 in OR Plane.
+    \begin{solution}
+    % \input{solutions/q4.tex}
+    \end{solution}
+  \end{parts}
+\end{questions}
+\end{document}
+
