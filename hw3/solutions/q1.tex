@@ -1,0 +1,13 @@
+The test pattern can be given as the table below. Each row is a clock tick, and at the initial tick, $\text{Q}_\text{n}$ is in the don't-care condition. For all the following ticks, $\text{Q}_\text{n}$ is the $\text{Q}_\text{n+1}$ from the previous tick.
+\begin{center}
+  \begin{tabular}{c | c | c}
+    D & $\text{Q}_\text{n+1}$ & Functions \\
+    \hline
+    0 & 0 & set 0 (with $\text{Q}_\text{n}$= $\times$) \\
+    0 & 0 & set 0 (with $\text{Q}_\text{n}$= 0) \\
+    1 & 1 & set 1 (with $\text{Q}_\text{n}$= 0) \\
+    1 & 1 & set 1 (with $\text{Q}_\text{n}$= 1) \\
+    0 & 0 & set 0 (with $\text{Q}_\text{n}$= 1) \\
+  \end{tabular}
+\end{center}
+If output does not meet the expectation, a functional fault is detected in the F/F. One of the set-to-0 or set-to-1 functions could not behave properly.

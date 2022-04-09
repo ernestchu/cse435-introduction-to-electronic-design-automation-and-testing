@@ -1,0 +1,12 @@
+The test pattern can be given as the table below. Each row is a clock tick. Assume $\text{Q}_\text{n}$ = 0 at the initial tick. {\color{red} (Todo: How to make such assumption?)} For all the following ticks, $\text{Q}_\text{n}$ is the $\text{Q}_\text{n+1}$ from the previous tick.
+\begin{center}
+  \begin{tabular}{c | c | c}
+    T & $\text{Q}_\text{n+1}$ & Functions \\
+    \hline
+    0 & 0 & hold 0 \\
+    1 & 1 & toggle to 1 \\
+    0 & 1 & hold 1 \\
+    1 & 0 & toggle to 0 \\
+  \end{tabular}
+\end{center}
+If output does not meet the expectation, a functional fault is detected in the F/F. One of the hold or toggle to 0/1 functions could not behave properly.
