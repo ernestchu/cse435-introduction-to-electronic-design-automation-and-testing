@@ -1,0 +1,64 @@
+\begin{center}
+  \begin{minipage}{0.4\linewidth}
+    \raggedleft
+    \begin{circuitikz}[line width=.7pt]
+      \ctikzset{logic ports=ieee}
+    
+      \input{solutions/pla.tex}
+    
+      % f1 or plane
+      \draw (4,-1.5) node[label=center:$\times$] {};
+      \draw (4,-2.0) node[label=center:$\times$] {};
+      \draw (4,-2.5) node[label=center:$\times$] {};
+      \draw (4,-3.0) node[label=center:$\times$] {};
+      \draw (4,-3.5) node[label=center:$\times$] {};
+      \draw (4,-4.0) node[label=center:$\times$] {};
+    
+      % f2 or plane
+      \draw (4.5,-1.5) node[label=center:$\times$] {};
+      \draw (4.5,-2.0) node[label=center:$\times$] {};
+      \draw (4.5,-2.5) node[label=center:$\times$] {};
+    
+      % fault
+      \draw[color=red] (2,-2.0) circle[radius=6pt] {};
+      \draw[color=red] (2,-2.5) circle[radius=6pt] {};
+      
+    \end{circuitikz}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.5\linewidth}
+    \begin{circuitikz}[line width=.7pt]
+      \ctikzset{logic ports=ieee}
+
+      \input{solutions/pla-w-gates.tex}
+    
+      % f1
+      \draw (5,-2.85) node[or port, scale=0.5, number inputs=6] (f1) {};
+      \draw (p1.out) -- ++(0.2,0) |- (f1.in 1);
+      \draw (p2.out) -- ++(0.1,0) |- (f1.in 2);
+      \draw (p3.out) |- (f1.in 3);
+      \draw (p4.out) |- (f1.in 4);
+      \draw (p5.out) -- ++(0.1,0) |- (f1.in 5);
+      \draw (p6.out) -- ++(0.2,0) |- (f1.in 6);
+      \draw (f1.out) -- ++(0,0) node[label=right:f1] {};
+
+      % f2
+      \draw (5,-2) node[or port, scale=0.5, number inputs=3] (f2) {};
+
+      \draw (f1.in 1) to[short,*-] (f2.in 3);
+
+      \draw (f2.in 2) ++(-0.2,0) node (f2_in2_shifted) {} -- (f2.in 2);
+      \draw (f1.in 2) ++(-0.2,0) to[short,*-] (f2_in2_shifted.center);
+
+      \draw (f2.in 1) ++(-0.4,0) node (f2_in1_shifted) {} -- (f2.in 1);
+      \draw (f1.in 3) ++(-0.4,0) to[short,*-] (f2_in1_shifted.center);
+
+      \draw (f2.out) -- ++(0,0) node[label=right:f2] {};
+    
+      % fault
+      \draw[color=red, -latexslim] (p2.in 2) ++(-0.05,-0.15) -- ++(0,0.3);
+      \draw[color=red, -latexslim] (p3.in 2) ++(-0.05,-0.15) -- ++(0,0.3);
+      \draw[color=red] (3.25,-1.5) node[label=s-a-1] {};
+    \end{circuitikz}
+  \end{minipage}
+\end{center}

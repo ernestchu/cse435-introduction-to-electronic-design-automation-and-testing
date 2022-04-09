@@ -1,0 +1,54 @@
+\vspace{5cm}
+\begin{center}
+  \begin{minipage}{0.4\linewidth}
+    \raggedleft
+    \begin{circuitikz}[line width=.7pt]
+      \ctikzset{logic ports=ieee}
+
+      \input{solutions/pla.tex}
+    
+      % f1 or plane
+      \draw (4,-1.5) node[label=center:$\times$] {};
+      \draw (4,-2.0) node[label=center:$\times$] {};
+      \draw (4,-2.5) node[label=center:$\times$] {};
+    
+      % f2 or plane
+      \draw (4.5,-3.0) node[label=center:$\times$] {};
+      \draw (4.5,-3.5) node[label=center:$\times$] {};
+      \draw (4.5,-4.0) node[label=center:$\times$] {};
+    
+      % fault
+      \draw[color=red] (1.5,-1.5) circle[radius=6pt] {};
+      \draw[color=red] (0,-2) circle[radius=6pt] {};
+      \draw[color=red] (2,-2.5) circle[radius=6pt] {};
+      
+    \end{circuitikz}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.5\linewidth}
+    \begin{circuitikz}[line width=.7pt]
+      \ctikzset{logic ports=ieee}
+
+      \input{solutions/pla-w-gates.tex}
+
+      % f1
+      \draw (4.5,52 |- p2.out) node[or port, scale=0.35715, number inputs=3] (f1) {};
+      \draw (p1.out) -| (f1.in 1);
+      \draw (p2.out) -| (f1.in 2);
+      \draw (p3.out) -| (f1.in 3);
+      \draw (f1.out) -- ++(0,0) node[label=right:f1] {};
+
+      % f2
+      \draw (4.5,52 |- p5.out) node[or port, scale=0.35715, number inputs=3] (f2) {};
+      \draw (p4.out) -| (f2.in 1);
+      \draw (p5.out) -| (f2.in 2);
+      \draw (p6.out) -| (f2.in 3);
+      \draw (f2.out) -- ++(0,0) node[label=right:f2] {};
+
+      % fault
+      % \draw[color=red, -latexslim] (p2.in 2) ++(-0.05,-0.15) -- ++(0,0.3);
+      % \draw[color=red, -latexslim] (p3.in 2) ++(-0.05,-0.15) -- ++(0,0.3);
+      % \draw[color=red] (3.25,-1.5) node[label=s-a-1] {};
+    \end{circuitikz}
+  \end{minipage}
+\end{center}

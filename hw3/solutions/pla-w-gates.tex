@@ -1,0 +1,51 @@
+% A & A negate
+\draw (0,0) node[label=A] (A) {} -- ++(0,-4.5);
+\draw (0.5,-1) node[not port, rotate=-90, scale=0.4, circuitikz/ieeestd ports/not radius=.25] (A_neg) {};
+\draw (A_neg.in) |- ++(-0.5,0.25) to[short, *-] ++(0,0);
+\draw (A_neg.out) -- (0.5,-4.5);
+
+% B & B negate
+\draw (1,0) node[label=B] (B) {} -- ++(0,-4.5);
+\draw (1.5,-1) node[not port, rotate=-90, scale=0.4, circuitikz/ieeestd ports/not radius=.25] (B_neg) {};
+\draw (B_neg.in) |- ++(-0.5,0.25) to[short, *-] ++(0,0);
+\draw (B_neg.out) -- (1.5,-4.5);
+
+% C & C negate
+\draw (2,0) node[label=C] (C) {} -- ++(0,-4.5);
+\draw (2.5,-1) node[not port, rotate=-90, scale=0.4, circuitikz/ieeestd ports/not radius=.25] (C_neg) {};
+\draw (C_neg.in) |- ++(-0.5,0.25) to[short, *-] ++(0,0);
+\draw (C_neg.out) -- (2.5,-4.5);
+
+% horizontal lines
+\draw (-0.5,-1.5) -- ++(3.25,0) -- ++(0,0) node[and port, anchor=in 1, scale=0.35715] (p1) {};
+\draw (-0.5,-1.7) -- ++(3.25,0) -- (p1.in 2);
+\draw (-0.5,-2.0) -- ++(3.25,0) -- ++(0,0) node[and port, anchor=in 1, scale=0.35715] (p2) {};
+\draw (-0.5,-2.2) -- ++(3.25,0);
+\draw (-0.5,-2.5) -- ++(3.25,0) -- ++(0,0) node[and port, anchor=in 1, scale=0.35715] (p3) {};
+\draw (-0.5,-2.7) -- ++(3.25,0);
+\draw (-0.5,-3.0) -- ++(3.25,0) -- ++(0,0) node[and port, anchor=in 1, scale=0.35715] (p4) {};
+\draw (-0.5,-3.2) -- ++(3.25,0);
+\draw (-0.5,-3.5) -- ++(3.25,0) -- ++(0,0) node[and port, anchor=in 1, scale=0.35715] (p5) {};
+\draw (-0.5,-3.7) -- ++(3.25,0);
+\draw (-0.5,-4.0) -- ++(3.25,0) -- ++(0,0) node[and port, anchor=in 1, scale=0.35715] (p6) {};
+\draw (-0.5,-4.2) -- ++(3.25,0);
+
+% and plane
+% AB
+\draw (0,-1.5)  to[short, *-] ++(0,0);
+\draw (1,-1.7) to[short, *-] ++(0,0);
+% BC
+\draw (1,-2.0)  to[short, *-] ++(0,0);
+\draw (2,-2.2) to[short, *-] ++(0,0);
+% CA
+\draw (0,-2.5)  to[short, *-] ++(0,0);
+\draw (2,-2.7) to[short, *-] ++(0,0);
+% A_negB_neg
+\draw (0.5,-3.0)  to[short, *-] ++(0,0);
+\draw (1.5,-3.2) to[short, *-] ++(0,0);
+% B_negC_neg
+\draw (1.5,-3.5)  to[short, *-] ++(0,0);
+\draw (2.5,-3.7) to[short, *-] ++(0,0);
+% C_negA_neg
+\draw (0.5,-4.0)  to[short, *-] ++(0,0);
+\draw (2.5,-4.2) to[short, *-] ++(0,0);
