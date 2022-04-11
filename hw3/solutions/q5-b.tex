@@ -1,4 +1,4 @@
-In the figure below, the red circles indicate the extra crosspoint faults, and the downward arrows indicate the s-a-0 faults. The missing crosspoint in the OR plane causes shrinkage or disappearance fault. For example, since P1 has a crosspoint with B, an extra crosspoint on $\overline{\text{B}}$ will make P1 always forward 0, i.e., the disappearance fault. On the other hand, P2 doesn't have crosspoint with $\overline{\text{A}}$ initially, an extra crosspoint with A would make P2 depend on A, i.e., the shrinkage fault.
+In the figure below, the red circles indicate the extra crosspoint faults. Since none of the extra crosspoint faults creates a new crosspoint. This PLA configuration should not be able to test out these faults.
 \begin{center}
   \begin{minipage}{0.4\linewidth}
     \raggedleft
@@ -18,9 +18,9 @@ In the figure below, the red circles indicate the extra crosspoint faults, and t
       \draw (4.5,-4.0) node[label=center:$\times$] {};
     
       % fault
-      \draw[color=red] (1.5,-1.5) circle[radius=6pt] {};
-      \draw[color=red] (0,-2) circle[radius=6pt] {};
-      \draw[color=red] (2,-2.5) circle[radius=6pt] {};
+      \draw[color=red] (4.5,-3.0) circle[radius=6pt] {};
+      \draw[color=red] (4.5,-3.5) circle[radius=6pt] {};
+      \draw[color=red] (4.5,-4.0) circle[radius=6pt] {};
       
     \end{circuitikz}
   \end{minipage}
@@ -46,14 +46,9 @@ In the figure below, the red circles indicate the extra crosspoint faults, and t
       \draw (f2.out) -- ++(0,0) node[label=right:f2] {};
 
       % fault
-      \draw[color=red, -latexslim] (p1.out) ++(-0.05,0.125) -- ++(0,-0.325);
-      \draw[color=red] (3.25,-1.5) node[label=s-a-0] {};
-
-      \draw[color=red] (-0.5,-2.28) -- ++(3.15,0) node[or port, anchor=in 1, scale=0.1] (f_p2) {};
-      \draw[color=red] (0,-2.28) to[short, *-] ++(0,0);
-      \draw[color=red] (f_p2.in 2) -- ++(-0.3,0) -- ++(0,-0.52) -- ++(-0.5,0);
-      \draw[color=red] (1.75,-2.85) node[label=center:\scriptsize 1] {};
-      \draw[color=red, -latexslim] (2.25,-2.85) ++(-0.05,0.125) -- ++(0,-0.325);
+      % \draw[color=red, -latexslim] (p2.in 2) ++(-0.05,-0.15) -- ++(0,0.3);
+      % \draw[color=red, -latexslim] (p3.in 2) ++(-0.05,-0.15) -- ++(0,0.3);
+      % \draw[color=red] (3.25,-1.5) node[label=s-a-1] {};
     \end{circuitikz}
   \end{minipage}
 \end{center}

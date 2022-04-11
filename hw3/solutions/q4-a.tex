@@ -1,3 +1,4 @@
+In the figure below, the red circles indicate the missing crosspoint faults, and the upward arrows indicate the s-a-1 faults. The missing crosspoint in the AND plane causes growth fault, i.e., the lines having crosspoint with C will no longer depend on C.
 \begin{center}
   \begin{minipage}{0.4\linewidth}
     \raggedleft
@@ -20,8 +21,12 @@
       \draw (4.5,-2.5) node[label=center:$\times$] {};
     
       % fault
+      \draw[color=red] (2,-1.5) circle[radius=6pt] {};
       \draw[color=red] (2,-2.0) circle[radius=6pt] {};
       \draw[color=red] (2,-2.5) circle[radius=6pt] {};
+      \draw[color=red] (2,-3.0) circle[radius=6pt] {};
+      \draw[color=red] (2,-3.5) circle[radius=6pt] {};
+      \draw[color=red] (2,-4.0) circle[radius=6pt] {};
       
     \end{circuitikz}
   \end{minipage}
