@@ -1,0 +1,66 @@
+\documentclass[12pt,answers]{exam}
+\usepackage{fontspec,graphicx,circuitikz,amsmath,caption}
+\setmainfont{Times New Roman}
+
+\headheight 8pt \headsep 20pt \footskip 30pt
+\textheight 9in \textwidth 6.5in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -.35in
+
+\input{assets/defs.tex}
+
+\begin{document}
+\begin{center}
+\LARGE CSE435 Introduction to EDA \& Testing - Spring 2022 \\
+\Large Homework Assignment \#4 \\
+\Large Shao-Hsuan Chu - B073040018 \\
+\end{center}
+\bigskip
+
+\begin{questions}
+  \question (25\%)
+  \begin{parts}
+    \part (10\%) For state transition fault model, explain why there are M(N-1) faults for a M-transition N-state machine. Similarly explain why there are $\text{N}^\text{M}$-1 multiple state transition faults.
+    \begin{solution}
+    % \input{solutions/q4-a.tex}
+    \end{solution}
+
+    \part (10\%) For stuck-at fault model, explain why there are 2K single stuck-at faults. Similarly explain why there are $\text{3}^\text{K}$-1 multiple stuck-at faults.
+    \begin{solution}
+    % \input{solutions/q4-a.tex}
+    \end{solution}
+
+    \part (5\%) Please show the similarity and differences of (single, multiple) fault numbers between the state transition fault model and the stuck-at fault model.
+    \begin{solution}
+    % \input{solutions/q4-a.tex}
+    \end{solution}
+
+  \end{parts}
+
+  \question (20\%) Prove that for combinational circuits \textbf{faults dominance is a transitive relation}, i.e. if f dominates g and g dominates h, then f dominates h.
+  \begin{solution}
+  % \input{solutions/q2.tex}
+  \end{solution}
+
+  \question (55\%) In the circuit shown in Figure 1,
+  \input{assets/q3.tex}
+  \begin{parts}
+    \part (5\%) How many single stuck-at faults needed to be considered initially?
+    \begin{solution}
+    % \input{solutions/q4-a.tex}
+    \end{solution}
+
+    \part (25\%) Applying the \textbf{check point theorem (incl. fault dominance)}, how many check point faults needed to be considered?
+    \begin{solution}
+    % \input{solutions/q4-a.tex}
+    \end{solution}
+
+    \part (25\%) Using \textbf{fault dominance} and \textbf{fault equivalence} relations to further reduce the number of stuck-at faults? How many remaining faults needed to be considered?
+    \begin{solution}
+    % \input{solutions/q4-a.tex}
+    \end{solution}
+
+  \end{parts}
+\end{questions}
+\end{document}
+

@@ -1,0 +1,42 @@
+\begin{center}
+\begin{circuitikz}[line width=.7pt]
+  % nmos 1
+  \draw (0,0) node[nmos] (N1) {};
+  \path (N1.center) \coord(center)
+  (N1.B) \coord(B) (N1.C) \coord(C)
+  (N1.E) \coord(E);
+  
+  \draw (N1.B) -- ++(-2.5,0) node[label=left:A] {};
+
+  % nmos 2
+  \draw (0,-1.2) node[nmos] (N2) {};
+
+  \draw (N2.B) -- ++(-2.5,0) node[label=left:B] {};
+  \draw (N2.E) -- ++(0,0) node[label=below:GND] {};
+
+  % pmos 1
+  \draw (-2,2) node[pmos,emptycircle] (P1) {};
+  \path (P1.center) \coord(center)
+  (P1.B) \coord(B) (P1.C) \coord(C)
+  (P1.E) \coord(E);
+
+  \draw (P1.C) -- ++(4,0) node[label=Y] {};
+
+  % pmos 2
+  \draw (1,2) node[pmos,emptycircle] (P2) {};
+  \draw (P2.center) -- ++(0,0) node[label=center:M1] {};
+  \draw (P2.C) to[short, -*] ++(0,0);
+
+  % wire pmoses to Vcc
+  \draw (P1.E) -- (P2.E);
+  \draw (-.5,3) node[label=Vcc] {} to[short, -*] (-.5,52 |- P1.E);
+
+  % wire pmos part and nmos part
+  \draw (P1.B) to[short, -*] (P1.B |- N1.B);
+  \draw (P2.B) -| (N2.B);
+  \draw (N2.B) to[short, -*] ++(0,0);
+  \draw (N1.C) to[short, -*] (N1.C |- P2.C);
+
+\end{circuitikz}
+\captionof{figure}{}
+\end{center}
