@@ -1,3 +1,4 @@
+Primary inputs and fanout branches form a sufficient set of checkpoints in an irredundant combinational circuit. Therefore, there are 6 checkpoints in this circuit, as shown in Figure 2.
 \begin{center}
 \begin{circuitikz}[line width=.7pt]
   \draw (0,0) node[and port] (and1) {};
@@ -27,6 +28,16 @@
   \draw (or2.in 1) node[label=left:j] {};
   \draw (or2.in 2) node[label=left:k] {};
 
+  \draw[color=red] (and1.in 1) ++(0,0) to[short, *-] ++(0,0);
+  \draw[color=red] (and1.in 2) ++(0,0) to[short, *-] ++(0,0);
+  \draw[color=red] (nor1.in 2) ++(0,0) to[short, *-] ++(0,0);
+  \draw[color=red] (and2.in 1) ++(0,0) to[short, *-] ++(0,0);
+  \draw[color=red] (and2.in 2) ++(0,0) to[short, *-] ++(0,0);
+  \draw[color=red] (or1.in 2) ++(0,0) to[short, *-] ++(0,0);
+
 \end{circuitikz}
 \captionof{figure}{}
 \end{center}
+
+These 6 checkpoints could produce 2 $\times$ 6 = 12 SSA faults. With fault dominance, s-a-1 at \textbf{a} and s-a-1 at \textbf{b} are dominated by s-a-1 at \textbf{f}, and we can replace the former two with the latter. Likewise, s-a-1 at \textbf{h} and s-a-1 at \textbf{d} are dominated by s-a-1 at \textbf{i}. As a result, the number of faults is reduced by 2, leaving 10 SSA faults after applying checkpoint theorem and fault dominance.
+
