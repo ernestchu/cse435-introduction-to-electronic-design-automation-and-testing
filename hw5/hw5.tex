@@ -1,0 +1,36 @@
+\documentclass[12pt,answers]{exam}
+\usepackage{fontspec,graphicx,circuitikz,amsmath,caption}
+\setmainfont{Times New Roman}
+
+\headheight 8pt \headsep 20pt \footskip 30pt
+\textheight 9in \textwidth 6.5in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -.35in
+
+\begin{document}
+\begin{center}
+\LARGE CSE435 Introduction to EDA \& Testing - Spring 2022 \\
+\Large Homework Assignment \#5 \\
+\Large Shao-Hsuan Chu - B073040018 \\
+\end{center}
+\bigskip
+
+\begin{questions}
+  \question (20\%) A circuit has the truth table of Table 1a. When there is a fault (faults) on the circuit, the faulty truth table becomes Table 1b. Try to derive tests to detect the fault (faults).
+  \input{assets/q1.tex}
+  \begin{solution}
+  \end{solution}
+
+  \question (80\%) Generate a test for the fault f-sa1 in Figure 1 by the following FOUR methods. Be sure to give the \textbf{key steps to show the features of every algorithm}, and also \textbf{draw the decision trees} for each case.
+  \begin{parts}
+    \part (20\%) Use the \textbf{Boolean difference method} to derive all the test patterns to detect the fault f-sa1.
+    \part (20\%) Generate a test for the fault f-sa1 by using \textbf{D-algorithm}.
+    \part (20\%) Generate a test for the fault f-sa1 by using \textbf{9-V Algorithm}.
+    \part (20\%) Generate a test for the fault f-sa1 by using \textbf{PODEM algorithm}.
+  \end{parts}
+  \input{assets/q2.tex} 
+
+
+\end{questions}
+\end{document}
+
