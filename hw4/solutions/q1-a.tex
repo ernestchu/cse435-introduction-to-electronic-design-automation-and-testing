@@ -1,5 +1,5 @@
 Denote M and N as the number of transitions and states, respectively. 
 \paragraph{Single-state-transition (SST) fault}
-For each transition, the possible destination could be either one of the states, so there are (N-1) faulty cases and 1 faultless case. The SST could occur at either one of the transitions, producing M(N-1) distinguishable faults.
+For each transition, the possible destination could be either one of the states, so there are (N-1) faulty cases and 1 fault-free case. The SST could occur at either one of the transitions, producing M(N-1) distinguishable faults.
 \paragraph{Multiple-state-transition (MST) fault}
-For each transition, the possible destination could be either one of the states, so there are N cases. Since each transition is independent to other transitions, there are $\text{N}^\text{M}$ distinguishable state-transition diagrams. Disregarding 1 faultless diagram, the number of faults in MST is thus $\text{N}^\text{M}$-1.
+For each transition, the possible destination could be either one of the states, so there are N cases. Since each transition is independent to other transitions, there are $\text{N}^\text{M}$ distinguishable state-transition diagrams. Disregarding 1 fault-free diagram, the number of faults in MST is thus $\text{N}^\text{M}$-1.

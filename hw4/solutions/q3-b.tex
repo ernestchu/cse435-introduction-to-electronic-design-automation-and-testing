@@ -13,22 +13,50 @@ Primary inputs and fanout branches form a sufficient set of checkpoints in an ir
 \captionof{figure}{}
 \end{center}
 
-These 7 checkpoints could produce 2 $\times$ 7 = 14 SSA faults.
+These 7 checkpoints can produce 2 $\times$ 7 = 14 SSA faults. To further reduce the number of faults, we can use fault collapsing method, including fault equivalence and fault dominance.
 
 \begin{center}
+\begin{circuitikz}[line width=.7pt]
+  \draw (0,0) node[or port] (or) {};
+  \draw (or.in 1) -- ++(0,0) node[label=left:a] {};
+  \draw (or.in 2) -- ++(0,0) node[label=left:b] {};
+  \draw (or.out) -- ++(0,0) node[label=right:out] {};
+\end{circuitikz}
+\captionof{figure}{}
+\end{center}
+
+\paragraph{Fault equivalence}
+For OR gate shown in Figure 3 as example, to test the stuck-at-1 (sa1) fault at a, denoted as a-sa1, we must force logic-0 at a to activate the fault, and we also need the other input (b) as non-controlling value, which is 0 for OR gate. The test vector is thus (0, 0), which is also the test vector for sa1 at b, denoted as b-sa1. To test sa1 at output, we only need to make all the inputs of OR gate logic-0 to activate the fault. We can observe that all the test vectors for a-sa1, b-sa1 and out-sa1 are identical, so the OR gate has an Equivalence Set of {a-sa1, b-sa1, out-sa1}, indicating we can only keep one fault and collapse others.
+
+\paragraph{Fault dominance}
+For OR gate shown in Figure 3 as example, to test the stuck-at-0 (sa0) fault at a, denoted as a-sa0, we must force logic-1 at a to activate the fault, and we also need the other input (b) as non-controlling value, which is 0 for OR gate. The test vector is thus (1, 0). Similarly, the test vector for sa0 at b, denoted as b-sa0, is (0, 1). To test sa0 at output, we need to make one of the inputs of OR gate logic-1 to activate the fault. The test vector is thus (1, $\times$) or ($\times$, 1). We can observe that the test vector for out-sa0 covers the ones for a-sa0 and b-sa0, i.e., out-sa0 dominates a-sa0 and b-sa0, so the OR gate has a Dominance Set of {out-sa0: a-sa0, b-sa0}, indicating we can collapse the dominator since the test inputs for the others are sufficient.
+
+Table 1 shows the equivalence sets and dominance sets for common gates. \\
+
+\begin{center}
+  \def\arraystretch{1.2}
   \begin{tabular}{lll}
     \specialrule{.1em}{.05em}{.05em} 
-    Gate & Equivalence Set(s) &	Dominant Set(s) \\
+    Gate & Equivalence Set(s) &	Dominance Set(s) \\
     \hline
     OR & \{a-sa1, b-sa1, out-sa1\} & \{out-sa0: a-sa0, b-sa0\} \\
     NOR & \{a-sa1, b-sa1, out-sa0\} & \{out-sa1: a-sa0, b-sa0\} \\
     AND & \{a-sa0, b-sa0, out-sa0\} & \{out-sa1: a-sa1, b-sa1\} \\
     NAND & \{a-sa0, b-sa0, out-sa1\} & \{out-sa0: a-sa1, b-sa1\} \\
-    Buffer & \vtop{\hbox{\strut \{in-sa0, out-sa0\}}\hbox{\strut \{in-sa1, out-sa1\}}} & null \\
     NOT & \vtop{\hbox{\strut \{in-sa1, out-sa0\}}\hbox{\strut \{in-sa0, out-sa1\}}} & null \\
+    Buffer & \vtop{\hbox{\strut \{in-sa0, out-sa0\}}\hbox{\strut \{in-sa1, out-sa1\}}} & null \\
     \specialrule{.1em}{.05em}{.05em} 
   \end{tabular}
+  \captionof{table}{The equivalence sets and dominance sets for common gates.}
 \end{center}
+
+For Figure 4-8 below, the red arrows indicate the necessary stuck-at faults, while the black ones indicates the collapsed faults after each steps.
+
+\input{solutions/q3-b-circuits/original.tex}
+\input{solutions/q3-b-circuits/G4.tex}
+\input{solutions/q3-b-circuits/G3.tex}
+\input{solutions/q3-b-circuits/G2.tex}
+\input{solutions/q3-b-circuits/G1.tex}
 
 % With fault dominance, s-a-1 at \textbf{a} and s-a-1 at \textbf{b} are dominated by s-a-1 at \textbf{f}, and we can replace the former two with the latter. Likewise, s-a-1 at \textbf{h} and s-a-1 at \textbf{d} are dominated by s-a-1 at \textbf{i}. As a result, the number of faults is reduced by 2, leaving 10 SSA faults after applying checkpoint theorem and fault dominance.
 
