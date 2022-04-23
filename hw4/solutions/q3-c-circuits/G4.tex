@@ -1,0 +1,48 @@
+\begin{center}
+\begin{circuitikz}[line width=.7pt]
+  \input{assets/circuit.tex}
+  % G1 in 1
+  \draw[color=red, -latexslim] (and1.in 1) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and1.in 1) ++(0.1,-0.25) -- ++(0,0.5);
+  % G1 in 2
+  \draw[color=red, -latexslim] (and1.in 2) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  % c
+  \draw[color=red, -latexslim] (and1.in 1) ++(0,-1.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and1.in 1) ++(0.1,-1.75) -- ++(0,0.5);
+  % G2 in 1
+  \draw[color=red, -latexslim] (nor1.in 1) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (nor1.in 1) ++(0.1,-0.25) -- ++(0,0.5);
+  % G2 in 2
+  \draw[color=red, -latexslim] (nor1.in 2) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (nor1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  % G3 in 1
+  \draw[color=red, -latexslim] (and2.in 1) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and2.in 1) ++(0.1,-0.25) -- ++(0,0.5);
+  % G3 in 2
+  \draw[color=red, -latexslim] (and2.in 2) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and2.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  % G4 in 1
+  \draw[color=red, -latexslim] (or1.in 1) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (or1.in 1) ++(0.1,-0.25) -- ++(0,0.5);
+  % G4 in 2
+  \draw[color=red, -latexslim] (or1.in 2) ++(0,0.25) -- ++(0,-0.5);
+  \draw[-latexslim] (or1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  % G5 in 1
+  \draw[color=red, -latexslim] (or2.in 1) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (or2.in 1) ++(0.1,-0.25) -- ++(0,0.5);
+  % G5 in 2
+  \draw[-latexslim] (or2.in 2) ++(0,0.25) -- ++(0,-0.5);
+  \draw[-latexslim] (or2.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  % G5 out
+  \draw[-latexslim] (or2.out) ++(0,0.25) -- ++(0,-0.5);
+  \draw[-latexslim] (or2.out) ++(0.1,-0.25) -- ++(0,0.5);
+
+  \draw (and1) node[left=5pt] {G1};
+  \draw (nor1) node[left=5pt] {G2};
+  \draw (and2) node[left=5pt] {G3};
+  \draw (or1) node[left=5pt] {G4};
+  \draw (or2) node[left=5pt] {G5};
+\end{circuitikz}
+\captionof{figure}{At G4, k-sa0 dominates i-sa0 and e-sa0. e-sa1 is equivalent to i-sa1.}
+\end{center}
