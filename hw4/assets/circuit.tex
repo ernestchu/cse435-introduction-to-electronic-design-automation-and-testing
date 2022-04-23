@@ -1,0 +1,26 @@
+\draw (0,0) node[and port] (and1) {};
+\draw (and1.in 1) -- ++(-0.5,0) node[label=left:a] {};
+\draw (and1.in 2) -- ++(-0.5,0) node[label=left:b] {};
+
+\draw (and1.out) -- ++(1,0) node[nor port, anchor=in 1] (nor1) {};
+\draw (nor1) ++(0,-2) node[and port] (and2) {};
+
+\draw (and1.in 1) ++(-0.5,-1.5) node[label=left:c] (c) {};
+\draw (c) -| (nor1.in 2);
+\draw (c) -| (and2.in 1);
+
+\draw (c |- and2.in 2) node[label=left:d] {} -- (and2.in 2);
+
+\draw (nor1.out) -| ++(2,-1) node[or port, anchor=in 1] (or2) {};
+\draw (and2.out) -| ++(0.3,-0.5) node[or port, anchor=in 1] (or1) {};
+\draw (or1.in 2) -- ++(0,0) node[label=left:e] {};
+\draw (or1.out) -| (or2.in 2);
+
+\draw (or2.out) -- ++(0,0) node[label=right:m] {};
+
+\draw (nor1.in 1) node[label=f] {};
+\draw (nor1.in 2) node[label=left:g] {};
+\draw (and2.in 1) node[label=left:h] {};
+\draw (or1.in 1) node[label=left:i] {};
+\draw (or2.in 1) node[label=left:j] {};
+\draw (or2.in 2) node[label=left:k] {};

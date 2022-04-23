@@ -1,43 +1,34 @@
-Primary inputs and fanout branches form a sufficient set of checkpoints in an irredundant combinational circuit. Therefore, there are 6 checkpoints in this circuit, as shown in Figure 2.
+Primary inputs and fanout branches form a sufficient set of checkpoints in an irredundant combinational circuit. Therefore, there are 7 checkpoints in this circuit, as shown in Figure 2.
 \begin{center}
 \begin{circuitikz}[line width=.7pt]
-  \draw (0,0) node[and port] (and1) {};
-  \draw (and1.in 1) -- ++(-0.5,0) node[label=left:a] {};
-  \draw (and1.in 2) -- ++(-0.5,0) node[label=left:b] {};
-
-  \draw (and1.out) -- ++(1,0) node[nor port, anchor=in 1] (nor1) {};
-  \draw (nor1) ++(0,-2) node[and port] (and2) {};
-
-  \draw (and1.in 1) ++(-0.5,-1.5) node[label=left:c] (c) {};
-  \draw (c) -| (nor1.in 2);
-  \draw (c) -| (and2.in 1);
-
-  \draw (c |- and2.in 2) node[label=left:d] {} -- (and2.in 2);
-
-  \draw (nor1.out) -| ++(2,-1) node[or port, anchor=in 1] (or2) {};
-  \draw (and2.out) -| ++(0.3,-0.5) node[or port, anchor=in 1] (or1) {};
-  \draw (or1.in 2) -- ++(0,0) node[label=left:e] {};
-  \draw (or1.out) -| (or2.in 2);
-
-  \draw (or2.out) -- ++(0,0) node[label=right:m] {};
-
-  \draw (nor1.in 1) node[label=f] {};
-  \draw (nor1.in 2) node[label=left:g] {};
-  \draw (and2.in 1) node[label=left:h] {};
-  \draw (or1.in 1) node[label=left:i] {};
-  \draw (or2.in 1) node[label=left:j] {};
-  \draw (or2.in 2) node[label=left:k] {};
-
+  \input{assets/circuit.tex}
   \draw[color=red] (and1.in 1) ++(0,0) to[short, *-] ++(0,0);
   \draw[color=red] (and1.in 2) ++(0,0) to[short, *-] ++(0,0);
   \draw[color=red] (nor1.in 2) ++(0,0) to[short, *-] ++(0,0);
   \draw[color=red] (and2.in 1) ++(0,0) to[short, *-] ++(0,0);
   \draw[color=red] (and2.in 2) ++(0,0) to[short, *-] ++(0,0);
   \draw[color=red] (or1.in 2) ++(0,0) to[short, *-] ++(0,0);
-
+  \draw[color=red] (and1.in 1) ++(0,-1.5) to[short, *-] ++(0,0);
 \end{circuitikz}
 \captionof{figure}{}
 \end{center}
 
-These 6 checkpoints could produce 2 $\times$ 6 = 12 SSA faults. With fault dominance, s-a-1 at \textbf{a} and s-a-1 at \textbf{b} are dominated by s-a-1 at \textbf{f}, and we can replace the former two with the latter. Likewise, s-a-1 at \textbf{h} and s-a-1 at \textbf{d} are dominated by s-a-1 at \textbf{i}. As a result, the number of faults is reduced by 2, leaving 10 SSA faults after applying checkpoint theorem and fault dominance.
+These 7 checkpoints could produce 2 $\times$ 7 = 14 SSA faults.
+
+\begin{center}
+  \begin{tabular}{lll}
+    \specialrule{.1em}{.05em}{.05em} 
+    Gate & Equivalence Set(s) &	Dominant Set(s) \\
+    \hline
+    OR & \{a-sa1, b-sa1, out-sa1\} & \{out-sa0: a-sa0, b-sa0\} \\
+    NOR & \{a-sa1, b-sa1, out-sa0\} & \{out-sa1: a-sa0, b-sa0\} \\
+    AND & \{a-sa0, b-sa0, out-sa0\} & \{out-sa1: a-sa1, b-sa1\} \\
+    NAND & \{a-sa0, b-sa0, out-sa1\} & \{out-sa0: a-sa1, b-sa1\} \\
+    Buffer & \vtop{\hbox{\strut \{in-sa0, out-sa0\}}\hbox{\strut \{in-sa1, out-sa1\}}} & null \\
+    NOT & \vtop{\hbox{\strut \{in-sa1, out-sa0\}}\hbox{\strut \{in-sa0, out-sa1\}}} & null \\
+    \specialrule{.1em}{.05em}{.05em} 
+  \end{tabular}
+\end{center}
+
+% With fault dominance, s-a-1 at \textbf{a} and s-a-1 at \textbf{b} are dominated by s-a-1 at \textbf{f}, and we can replace the former two with the latter. Likewise, s-a-1 at \textbf{h} and s-a-1 at \textbf{d} are dominated by s-a-1 at \textbf{i}. As a result, the number of faults is reduced by 2, leaving 10 SSA faults after applying checkpoint theorem and fault dominance.
 
