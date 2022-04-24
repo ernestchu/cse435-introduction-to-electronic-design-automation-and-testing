@@ -1,5 +1,5 @@
 \documentclass[12pt,answers]{exam}
-\usepackage{fontspec,graphicx,circuitikz,amsmath,caption}
+\usepackage{fontspec,graphicx,circuitikz,amsmath,caption,tikz}
 \setmainfont{Times New Roman}
 
 \headheight 8pt \headsep 20pt \footskip 30pt
@@ -16,9 +16,10 @@
 \bigskip
 
 \begin{questions}
-  \question (20\%) A circuit has the truth table of Table 1a. When there is a fault (faults) on the circuit, the faulty truth table becomes Table 1b. Try to derive tests to detect the fault (faults).
+  \question (20\%) A circuit has the truth table of Table 1. When there is a fault (faults) on the circuit, the faulty truth table becomes Table 2. Try to derive tests to detect the fault (faults).
   \input{assets/q1.tex}
   \begin{solution}
+    \input{solutions/q1.tex}
   \end{solution}
 
   \question (80\%) Generate a test for the fault f-sa1 in Figure 1 by the following FOUR methods. Be sure to give the \textbf{key steps to show the features of every algorithm}, and also \textbf{draw the decision trees} for each case.
