@@ -1,0 +1,62 @@
+\begin{center} \begin{circuitikz}[line width=.7pt]
+  \input{assets/circuit.tex}
+  \draw (G1.in 1) node[label=left:a 1] (a) {};
+  \draw (G1.in 2) node[label=left:b$\times$] {};
+  \draw (a |- G4) node[label=left:c$\times$] {} to[short, -*] (G2.in 2 |- G4);
+  \draw (a |- G3.in 2) node[label=left:d$\times$] {} -- (G3.in 2);
+  \draw (G2.in 1) node[label=e$\times$] {};
+  \draw (G2.out) node[label=right:f 0/1] {};
+  \draw (G3.out) node[label=right:g$\times$] {};
+  \draw (G4.out) node[label=right:h$\times$] {};
+  \draw[color=red, line width=0.75mm] (G4.in 1) -| (G2.out) |- (G1.out) |- (G1.in 1);
+\end{circuitikz}
+\captionof{figure}{Activate f-sa1, so f = 0. Objective = (f, 0), inversion parity = even. Therefore, a = f = 0.}
+\end{center}
+
+\begin{center} \begin{circuitikz}[line width=.7pt]
+  \input{assets/circuit.tex}
+  \draw (G1.in 1) node[label=left:a 0] (a) {};
+  \draw (G1.in 2) node[label=left:b 0] {};
+  \draw (a |- G4) node[label=left:c$\times$] {} to[short, -*] (G2.in 2 |- G4);
+  \draw (a |- G3.in 2) node[label=left:d$\times$] {} -- (G3.in 2);
+  \draw (G2.in 1) node[label=e 1] {};
+  \draw (G2.out) node[label=right:f 0/1] {};
+  \draw (G3.out) node[label=right:g$\times$] {};
+  \draw (G4.out) node[label=right:h$\times$] {};
+  \draw[color=red, line width=0.75mm] (G4.in 1) -| (G2.out) |- (G1.out) |- (G1.in 2);
+\end{circuitikz}
+\captionof{figure}{Objective = (f, 0), inversion parity = even. Therefore, b = f = 0, e = 1.}
+\end{center}
+
+\begin{center} \begin{circuitikz}[line width=.7pt]
+  \input{assets/circuit.tex}
+  \draw (G1.in 1) node[label=left:a 0] (a) {};
+  \draw (G1.in 2) node[label=left:b 0] {};
+  \draw (a |- G4) node[label=left:c 1] (c) {} to[short, -*] (G2.in 2 |- G4);
+  \draw (a |- G3.in 2) node[label=left:d$\times$] {} -- (G3.in 2);
+  \draw (G2.in 1) node[label=e 1] {};
+  \draw (G2.out) node[label=right:f 0/1] {};
+  \draw (G3.out) node[label=right:g$\times$] {};
+  \draw (G4.out) node[label=right:h$\times$] {};
+  \draw[color=red, line width=0.75mm] (G4.in 1) -| (G2.out) -| (G2.in 2) |- (c);
+\end{circuitikz}
+\captionof{figure}{Objective = (f, 0), inversion parity = odd. Therefore, c = f' = 1}
+\end{center}
+
+\begin{center} \begin{circuitikz}[line width=.7pt]
+  \input{assets/circuit.tex}
+  \draw (G1.in 1) node[label=left:a 0] (a) {};
+  \draw (G1.in 2) node[label=left:b 0] {};
+  \draw (a |- G4) node[label=left:c 1] (c) {} to[short, -*] (G2.in 2 |- G4);
+  \draw (a |- G3.in 2) node[label=left:d 0] (d) {} -- (G3.in 2);
+  \draw (G2.in 1) node[label=e 1] {};
+  \draw (G2.out) node[label=right:f 0/1] {};
+  \draw (G3.out) node[label=right:g 1] {};
+  \draw (G4.out) node[label=right:h 0/1] {};
+  \draw[color=red, line width=0.75mm] (G4.in 2) -| (G3.out) |- (G3.in 2) |- (d);
+\end{circuitikz}
+\captionof{figure}{To propagate to h, g = 1. Objective = (g, 1), inversion parity = odd. Therefore, d = g' = 0. f-sa1 is now observable at h, thus complete.}
+\end{center}
+
+\textbf{Answer:} (a, b, c, d) = (0, 0, 1, 0).
+

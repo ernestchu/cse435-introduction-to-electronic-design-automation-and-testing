@@ -1,0 +1,31 @@
+
+\begin{tabular}{rlll}
+  \specialrule{.1em}{.05em}{.05em} 
+  Step & Decision &	Implication & Comment \\
+  \hline
+  1 &
+  f = D' &
+  \vtop{
+    \hbox{\strut e = c = 1}
+    \hbox{\strut a = b = 0}
+  } &
+  \vtop{
+    \hbox{\strut Activate f-sa1}
+    \hbox{\strut (ce)' = 0}
+    \hbox{\strut (a+b)' = 1}
+  } \\
+  \hline
+  2 &
+  g = 0 &
+  \vtop{
+    \hbox{\strut h = D}
+    \hbox{\strut d = 0}
+  } &
+  \vtop{
+    \hbox{\strut Propagate via h}
+    \hbox{\strut c$\oplus$d = 1, and c = 1 (from step 1)}
+  } \\
+  \specialrule{.1em}{.05em}{.05em} 
+\end{tabular}
+
+\textbf{Answer:} (a, b, c, d) = (0, 0, 1, 0).

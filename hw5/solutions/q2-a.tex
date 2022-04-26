@@ -1,0 +1,20 @@
+To test the stuck-at-1 fault at $f$, $f$ must equal 0 to activate the fault. In addition, the fault has to be observable at the output, meaning that the boolean difference of the logic function $F$ w.r.t. $f$ should be 1, i.e., $F_f(0) \oplus F_f(1) = 1$.
+
+\begin{align*} 
+f &= 0 \\
+f' &= 1 \\
+F_f(0) \oplus F_f(1) &= 1 \\
+(f')(F_f(0) \oplus F_f(1)) &= 1 \\
+(f')(0 + (c \oplus d)')' \oplus (1 + (c \oplus d)')' &= 1 \\ 
+(f')(c \oplus d \oplus 0) &= 1 \\
+(f')(c \oplus d) &= 1 \\
+((a+b)'c)''(c \oplus d) &= 1 \\
+((a+b)'c)(c \oplus d) &= 1 \\
+a'b'c(c \oplus d) &= 1 \\
+a'b'c(cd'+c'd) &= 1 \\
+a'b'ccd'+a'b'cc'd &= 1 \\
+a'b'cd' &= 1 \\
+\end{align*}
+
+\textbf{Answer:} \{(a, b, c, d) | a'b'cd' = 1\} = \{(0, 0, 1, 0)\}.
+

@@ -1,0 +1,10 @@
+\draw (0,0) node[nor port] (G1) {};
+\draw (G1.out) -- ++(0,0) node[nand port, anchor=in 1] (G2) {};
+\draw (G2.in 2) -- ++(0,-1) node[xnor port, anchor=in 1] (G3) {};
+\draw (G2.out) |- ++(0.5,-0.5) node[nor port, anchor=in 1] (G4) {};
+\draw (G3.out) |- (G4.in 2);
+
+\draw (G1) node[left=6pt] {G1};
+\draw (G2) node[left=6pt] {G2};
+\draw (G3) node[left=6pt] {G3};
+\draw (G4) node[left=6pt] {G4};
