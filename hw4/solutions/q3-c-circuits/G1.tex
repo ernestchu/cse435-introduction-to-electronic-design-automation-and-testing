@@ -5,7 +5,7 @@
   \draw[color=red, -latexslim] (and1.in 1) ++(0,0.25) -- ++(0,-0.5);
   \draw[color=red, -latexslim] (and1.in 1) ++(0.1,-0.25) -- ++(0,0.5);
   % G1 in 2
-  \draw[-latexslim] (and1.in 2) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and1.in 2) ++(0,0.25) -- ++(0,-0.5);
   \draw[color=red, -latexslim] (and1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
   % c
   \draw[color=red, -latexslim] (and1.in 1) ++(0,-1.25) -- ++(0,-0.5);
@@ -15,9 +15,9 @@
   \draw[-latexslim] (nor1.in 1) ++(0.1,-0.25) -- ++(0,0.5);
   % G2 in 2
   \draw[color=red, -latexslim] (nor1.in 2) ++(0,0.25) -- ++(0,-0.5);
-  \draw[-latexslim] (nor1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  \draw[color=red, -latexslim] (nor1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
   % G3 in 1
-  \draw[-latexslim] (and2.in 1) ++(0,0.25) -- ++(0,-0.5);
+  \draw[color=red, -latexslim] (and2.in 1) ++(0,0.25) -- ++(0,-0.5);
   \draw[color=red, -latexslim] (and2.in 1) ++(0.1,-0.25) -- ++(0,0.5);
   % G3 in 2
   \draw[color=red, -latexslim] (and2.in 2) ++(0,0.25) -- ++(0,-0.5);
@@ -27,7 +27,7 @@
   \draw[-latexslim] (or1.in 1) ++(0.1,-0.25) -- ++(0,0.5);
   % G4 in 2
   \draw[color=red, -latexslim] (or1.in 2) ++(0,0.25) -- ++(0,-0.5);
-  \draw[-latexslim] (or1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
+  \draw[color=red, -latexslim] (or1.in 2) ++(0.1,-0.25) -- ++(0,0.5);
   % G5 in 1
   \draw[-latexslim] (or2.in 1) ++(0,0.25) -- ++(0,-0.5);
   \draw[-latexslim] (or2.in 1) ++(0.1,-0.25) -- ++(0,0.5);
@@ -44,5 +44,5 @@
   \draw (or1) node[left=5pt] {G4};
   \draw (or2) node[left=5pt] {G5};
 \end{circuitikz}
-\captionof{figure}{At G1, f-sa1 dominates a-sa1 and b-sa1. b-sa0 and f-sa0 are equivalent to a-sa0.}
+\captionof{figure}{At G1, f-sa1 dominates a-sa1 and b-sa1. f-sa0 is equivalent to a-sa0. We've already collapsed the faults into 7 check points. For the rest of the steps, just follow problem 3(b) above.}
 \end{center}
