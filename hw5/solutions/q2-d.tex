@@ -1,62 +1,57 @@
-\begin{center} \begin{circuitikz}[line width=.7pt]
-  \input{assets/circuit.tex}
-  \draw (G1.in 1) node[label=left:a 1] (a) {};
-  \draw (G1.in 2) node[label=left:b$\times$] {};
-  \draw (a |- G4) node[label=left:c$\times$] {} to[short, -*] (G2.in 2 |- G4);
-  \draw (a |- G3.in 2) node[label=left:d$\times$] {} -- (G3.in 2);
-  \draw (G2.in 1) node[label=e$\times$] {};
-  \draw (G2.out) node[label=right:f 0/1] {};
-  \draw (G3.out) node[label=right:g$\times$] {};
-  \draw (G4.out) node[label=right:h$\times$] {};
-  \draw[color=red, line width=0.75mm] (G4.in 1) -| (G2.out) |- (G1.out) |- (G1.in 1);
-\end{circuitikz}
-\captionof{figure}{Activate f-sa1, so f = 0. Objective = (f, 0), inversion parity = even. Therefore, a = f = 0.}
-\end{center}
+% 
+% \begin{tabular}{rlcc|c|c|c|c|c|c|}
+%   \specialrule{.1em}{.05em}{.05em} 
+%   \multirow{2}{*}{Step} &
+%   \multirow{2}{*}{Comments} &
+%   \multicolumn{7}{c}{Cube} \\
+%   \cline{3-10}
+%   && \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \specialrule{.1em}{.05em}{.05em} 
+%   1 &
+%   Activate f-sa1. TC(0) = PDCF &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{ } &   & 1 &   & 1 & D'&   &   \\
+%   \hline
+%   2 &
+%   Backward implication: SC\textsubscript{G1} &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{\textbf{0}} & \textbf{0} &   &   & 1 &  &   &   \\
+%   & TC(1) = TC(0) $\cap$ SC\textsubscript{G1} &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{0} & 0 & 1 &   & 1 & D'&   &   \\
+%   \hline
+%   3 &
+%   Propagate fault. D-drive = G4. PDC\textsubscript{G4} &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{ } &   &   &   &   & D'& 0 & D \\
+%   & TC(2) = TC(1) $\cap$ PDC\textsubscript{G4} &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{0} & 0 & 1 &   & 1 & D'& 0 & D \\
+%   \hline
+%   4 &
+%   Backward implication: SC\textsubscript{G3} &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{ } &   & 1 & \textbf{0} &   &   & 0 &   \\
+%   & TC(3) = TC(2) $\cap$ SC\textsubscript{G3} &
+% % \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+%   \multicolumn{1}{|c|}{0} & 0 & 1 & 0 & 1 & D'& 0 & D \\
+%   \hline
+%   5 &
+%   \multicolumn{9}{l}{No justification needed. Test generated.} \\
+%   \specialrule{.1em}{.05em}{.05em} 
+% \end{tabular}
 
-\begin{center} \begin{circuitikz}[line width=.7pt]
-  \input{assets/circuit.tex}
-  \draw (G1.in 1) node[label=left:a 0] (a) {};
-  \draw (G1.in 2) node[label=left:b 0] {};
-  \draw (a |- G4) node[label=left:c$\times$] {} to[short, -*] (G2.in 2 |- G4);
-  \draw (a |- G3.in 2) node[label=left:d$\times$] {} -- (G3.in 2);
-  \draw (G2.in 1) node[label=e 1] {};
-  \draw (G2.out) node[label=right:f 0/1] {};
-  \draw (G3.out) node[label=right:g$\times$] {};
-  \draw (G4.out) node[label=right:h$\times$] {};
-  \draw[color=red, line width=0.75mm] (G4.in 1) -| (G2.out) |- (G1.out) |- (G1.in 2);
-\end{circuitikz}
-\captionof{figure}{Objective = (f, 0), inversion parity = even. Therefore, b = f = 0, e = 1.}
-\end{center}
 
-\begin{center} \begin{circuitikz}[line width=.7pt]
-  \input{assets/circuit.tex}
-  \draw (G1.in 1) node[label=left:a 0] (a) {};
-  \draw (G1.in 2) node[label=left:b 0] {};
-  \draw (a |- G4) node[label=left:c 1] (c) {} to[short, -*] (G2.in 2 |- G4);
-  \draw (a |- G3.in 2) node[label=left:d$\times$] {} -- (G3.in 2);
-  \draw (G2.in 1) node[label=e 1] {};
-  \draw (G2.out) node[label=right:f 0/1] {};
-  \draw (G3.out) node[label=right:g$\times$] {};
-  \draw (G4.out) node[label=right:h$\times$] {};
-  \draw[color=red, line width=0.75mm] (G4.in 1) -| (G2.out) -| (G2.in 2) |- (c);
-\end{circuitikz}
-\captionof{figure}{Objective = (f, 0), inversion parity = odd. Therefore, c = f' = 1}
-\end{center}
+\begin{enumerate}
+  \item Activate f-sa1. Initial objective: f = 0.
+  \item Since G2 is an imply gate, backtrace to the hardest PI, a. With an even inversion parity, a = 0. Simulation, objective not achieved.
+  \item Backtrace to the next hardest PI, b. With an even inversion parity, b = 0, e = 1. Simulation, objective not achieved.
+  \item Backtrace to the next hardest PI, c. With an old inversion parity, c = 1. Simulation, objective achieved.
+  \item Propagate the fault. Objective: g = 0.
+  \item Backtrace to the remaining PI, d. With an old inversion parity, d = 1. Simulation, g = $(\text{c}\oplus\text{d})'$ = 0. Conflict with the objective. Flip d to 0. Simulation, objective achieved.
+  \item Test generated, (a, b, c, d) = (0, 0, 1, 0).
 
-\begin{center} \begin{circuitikz}[line width=.7pt]
-  \input{assets/circuit.tex}
-  \draw (G1.in 1) node[label=left:a 0] (a) {};
-  \draw (G1.in 2) node[label=left:b 0] {};
-  \draw (a |- G4) node[label=left:c 1] (c) {} to[short, -*] (G2.in 2 |- G4);
-  \draw (a |- G3.in 2) node[label=left:d 0] (d) {} -- (G3.in 2);
-  \draw (G2.in 1) node[label=e 1] {};
-  \draw (G2.out) node[label=right:f 0/1] {};
-  \draw (G3.out) node[label=right:g 1] {};
-  \draw (G4.out) node[label=right:h 0/1] {};
-  \draw[color=red, line width=0.75mm] (G4.in 2) -| (G3.out) |- (G3.in 2) |- (d);
-\end{circuitikz}
-\captionof{figure}{To propagate to h, g = 1. Objective = (g, 1), inversion parity = odd. Therefore, d = g' = 0. f-sa1 is now observable at h, thus complete.}
-\end{center}
+\end{enumerate}
 
 \textbf{Answer:} (a, b, c, d) = (0, 0, 1, 0).
 

@@ -1,31 +1,45 @@
 
-\begin{tabular}{rlll}
+\begin{tabular}{rlcc|c|c|c|c|c|c|}
   \specialrule{.1em}{.05em}{.05em} 
-  Step & Decision &	Implication & Comment \\
-  \hline
+  \multirow{2}{*}{Step} &
+  \multirow{2}{*}{Comments} &
+  \multicolumn{7}{c}{Cube} \\
+  \cline{3-10}
+  && \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \specialrule{.1em}{.05em}{.05em} 
   1 &
-  f = D' &
-  \vtop{
-    \hbox{\strut e = c = 1}
-    \hbox{\strut a = b = 0}
-  } &
-  \vtop{
-    \hbox{\strut Activate f-sa1}
-    \hbox{\strut (ce)' = 0}
-    \hbox{\strut (a+b)' = 1}
-  } \\
+  Activate f-sa1. TC(0) = PDCF &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{ } &   & 1 &   & 1 & D'&   &   \\
   \hline
   2 &
-  g = 0 &
-  \vtop{
-    \hbox{\strut h = D}
-    \hbox{\strut d = 0}
-  } &
-  \vtop{
-    \hbox{\strut Propagate via h}
-    \hbox{\strut c$\oplus$d = 1, and c = 1 (from step 1)}
-  } \\
+  Backward implication: SC\textsubscript{G1} &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{\textbf{0}} & \textbf{0} &   &   & 1 &  &   &   \\
+  & TC(1) = TC(0) $\cap$ SC\textsubscript{G1} &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{0} & 0 & 1 &   & 1 & D'&   &   \\
+  \hline
+  3 &
+  Propagate fault. D-drive = G4. PDC\textsubscript{G4} &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{ } &   &   &   &   & D'& 0 & D \\
+  & TC(2) = TC(1) $\cap$ PDC\textsubscript{G4} &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{0} & 0 & 1 &   & 1 & D'& 0 & D \\
+  \hline
+  4 &
+  Backward implication: SC\textsubscript{G3} &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{ } &   & 1 & \textbf{0} &   &   & 0 &   \\
+  & TC(3) = TC(2) $\cap$ SC\textsubscript{G3} &
+% \multicolumn{1}{|c|}{a} & b & c & d & e & f & g & h \\
+  \multicolumn{1}{|c|}{0} & 0 & 1 & 0 & 1 & D'& 0 & D \\
+  \hline
+  5 &
+  \multicolumn{9}{l}{No justification needed. Test generated.} \\
   \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}
 
 \textbf{Answer:} (a, b, c, d) = (0, 0, 1, 0).
+
