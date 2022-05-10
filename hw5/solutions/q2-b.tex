@@ -1,4 +1,20 @@
+We'll use some acronyms, explained in Table 3, in the following D-algorithm procedure, shown in Table 4.
 
+\begin{center}
+\begin{tabular}{llp{6.5cm}}
+  \specialrule{.1em}{.05em}{.05em} 
+  Acronym & Meaning & Comments \\
+  \specialrule{.1em}{.05em}{.05em} 
+  TC & Test Cube & TC(n) is the test cube at APTG step n. \\
+  PDCF & Primitive D-Cube for a Fault & Minimal input condition to activate the fault. \\
+  PDC & Propagation D-Cube & Minimal input condition to propagate the fault through a gate. \\
+  SC & Single Cover & Valid input/output combination for a gate. \\
+  \specialrule{.1em}{.05em}{.05em} 
+\end{tabular}
+\captionof{table}{Acronym for D-algorithm procedure}
+\end{center}
+
+\begin{center}
 \begin{tabular}{rlcc|c|c|c|c|c|c|}
   \specialrule{.1em}{.05em}{.05em} 
   \multirow{2}{*}{Step} &
@@ -37,9 +53,11 @@
   \multicolumn{1}{|c|}{0} & 0 & 1 & 0 & 1 & D'& 0 & D \\
   \hline
   5 &
-  \multicolumn{9}{l}{No justification needed. Test generated.} \\
+  \multicolumn{9}{l}{No justification needed. Test generated, (a, b, c, d) = (0, 0, 1, 0)} \\
   \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}
+\captionof{table}{The procedure for D-algorithm}
+\end{center}
 
 \textbf{Answer:} (a, b, c, d) = (0, 0, 1, 0).
 
