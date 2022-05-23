@@ -1,0 +1,36 @@
+We intentionally don't follow the controllability guidance in this example.
+
+\begin{enumerate}
+  \item Activate G5 SA0. Initial objective: (G5, D').
+  \item {
+    \begin{enumerate}
+      \item Since G5 is an imply gate, instead of backtrace to the hardest unknown input, G1, with CY1(G1) = 0.25, we backtrace to G4, with CY1(G4) = 0.656. With an odd inversion parity, intermediate objective: (G4, 0).
+      \item Since G4 is an imply gate, instead of keep backtrace to the hardest unknown input, G3, with CY0(G3) = 0.75, we backtrace to G2, with CY0(G2) = 0.875. With an even inversion parity, intermediate objective: (G2, 0).
+      \item Since G2 is a decision gate, we back trace to A, (CY0(A) = CY0(B) = CY0(C) = 0.5, so we may choose either one). With an even inversion parity, intermediate objective: (A, 0).
+      \item Since A is not a gate, stop backtracing. Assign 0 to A. Simulation, objective not achieved. Implication: G1 = 0, ... , G5 = 0, conflict with the objective.
+      \item Backtrack and flip A to 1. Simulation, objective not achieved. Implication: G3 = 0;
+    \end{enumerate}
+  }
+  \item {
+    \begin{enumerate}
+      \item Since G5 is an imply gate, instead of backtrace to the hardest unknown input, G1, with CY1(G1) = 0.25, we backtrace to G4, with CY1(G4) = 0.656. With an odd inversion parity, intermediate objective: (G4, 0).
+      \item Since G4 is an imply gate, keep backtrace to the hardest unknown input, G2. With an even inversion parity, intermediate objective: (G2, 0).
+      \item Since G2 is a decision gate, we back trace to B. With an even inversion parity, intermediate objective: (B, 0).
+      \item Since B is not a gate, stop backtracing. Assign 0 to B. Simulation, objective not achieved. Implication: G1 = 1, ... , G5 = 0, conflict with the objective.
+      \item Backtrack and flip B to 1. Simulation, objective not achieved. Implication: G1 = 1, G6 = 0.
+    \end{enumerate}
+  }
+  \item {
+    \begin{enumerate}
+      \item Since G5 is an imply gate, backtrace to the hardest unknown input, G4. With an odd inversion parity, intermediate objective: (G4, 0).
+      \item Since G4 is an imply gate, keep backtrace to the hardest unknown input, G2. With an even inversion parity, intermediate objective: (G2, 0).
+      \item Since G2 is a decision gate, we back trace to C. With an even inversion parity, intermediate objective: (C, 0).
+      \item Since C is not a gate, stop backtracing. Assign 0 to C. Simulation, objective achieved. Implication: G2 = 0, G4 = 0, G5 = D', G7 = D'. The fault has reached the primary output.
+    \end{enumerate}
+  }
+  \item Test generated, (A, B, C) = (1, 1, 0).
+
+\end{enumerate}
+
+\textbf{Answer:} (A, B, C) = (1, 1, 0).
+
