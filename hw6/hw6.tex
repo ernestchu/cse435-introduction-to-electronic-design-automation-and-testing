@@ -1,0 +1,66 @@
+\documentclass[12pt,answers]{exam}
+\usepackage{fontspec,graphicx,circuitikz,amsmath,caption,tikz,ctable,multirow,array}
+\setmainfont{Times New Roman}
+
+\headheight 8pt \headsep 20pt \footskip 30pt
+\textheight 9in \textwidth 6.5in
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -.35in
+
+\begin{document}
+\begin{center}
+\LARGE CSE435 Introduction to EDA \& Testing - Spring 2022 \\
+\Large Homework Assignment \#5 \\
+\Large Shao-Hsuan Chu - B073040018 \\
+\end{center}
+\bigskip
+
+About Path-Oriented Decision Making (PODEM), please answer the following questions according to Figure 1. \\
+1-4 PODEM (See Figure 1)
+\begin{questions}
+  \question (15\%) Derive the effective test set for G5 SA0 by PODEM
+  \input{assets/q1.tex}
+  \begin{solution}
+    % \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (15\%) Derive the effective test set for G5 SA0 by PODEM with More Intelligent Backtracing
+  % \input{assets/q1.tex}
+  \begin{solution}
+    % \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (15\%) Derive the effective test set for G5 SA0 by PODEM with Unguided Backtracing
+  % \input{assets/q1.tex}
+  \begin{solution}
+    % \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (15\%) Please compare the above (1), (2), (3). [Chapter 10, slides 7-23]
+  % \input{assets/q1.tex}
+  \begin{solution}
+    % \input{solutions/q1.tex}
+  \end{solution}
+
+  \question (15\%) What are the difference between Backtracking and Backtracing? Please show by example.
+  \begin{solution}
+    % \input{solutions/q2.tex}
+  \end{solution}
+
+  \question (25\%) FAN (See Figure 2)
+  \input{assets/q6.tex}
+  \begin{parts}
+    \part (15\%) Generate a test for the fault f-sa1 by using FAN algorithm.
+    \begin{solution}
+      % \input{solutions/q2.tex}
+    \end{solution}
+
+    \part (10\%) What are the differences between PODEM and FAN?
+    \begin{solution}
+      % \input{solutions/q2.tex}
+    \end{solution}
+  \end{parts}
+
+\end{questions}
+\end{document}
+

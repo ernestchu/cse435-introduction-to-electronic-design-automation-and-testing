@@ -1,0 +1,56 @@
+\begin{center}
+\begin{circuitikz}[line width=.7pt]
+  \draw (0,0) node[and port] (G1) {G1};
+  \draw (G1) ++(0,-2) node[and port, number inputs=3] (G2) {G2};
+  \draw (G2) ++(0,-2) node[and port] (G3) {G3};
+  \draw (G2) ++(2,-1) node[or port] (G4) {G4};
+  \draw (G2.out) -| (G4.in 1) (G3.out) -| (G4.in 2);
+  \draw (G1) -- ++(4,0) node[and port, anchor=in 1] (G5) {G5};
+  \draw (G4) -- ++(2,0) node[and port, anchor=in 2] (G6) {G6};
+  \draw (G5) ++(2,-1.25) node[or port] (G7) {G7};
+  \draw (G5.out) -| (G7.in 1) (G6.out) -| (G7.in 2);
+
+  \draw (G5.in 2) ++(-1,0) node[not port, scale=0.5] (not3) {};
+  \draw (G4.out) |- (not3.in) (G4.out) to[short, *-] ++(0,0);
+  \draw (not3.out) -- (G5.in 2);
+
+  \draw (G6.in 1) ++(-1,0) node[not port, scale=0.5] (not4) {};
+  \draw (not4) ++(-1.2,0) node[] (not4left) {};
+  \draw (not4.in) -| (not4left |- G5.in 1) (not4left |- G5.in 1) to[short, *-] ++(0,0);
+  \draw (not4.out) -- (G6.in 1);
+
+  \draw (G1.in 1) -- ++(-1.5,0) node[label=left:A] {};
+  \draw (G1.in 2) -- ++(-1.5,0) node[label=left:B] {};
+  \draw (G2.in 2) -- ++(-1.5,0) node[label=left:C] {};
+
+  \draw (G1.in 1) ++(-0.4,0) to[short, *-]
+        ++(0,-3) node[not port, scale=0.5, rotate=-90, anchor=in] (not2) {};
+  \draw (G2.in 1) to[short, -*] (not2 |- G2.in 1);
+  \draw (not2.out) |- (G3.in 1);
+
+  \draw (G1.in 2) ++(-1,0) to[short, *-]
+        ++(0,-3) node[not port, scale=0.5, rotate=-90, anchor=in] (not1) {};
+  \draw (G2.in 3) to[short, -*] (not1 |- G2.in 3);
+  \draw (not1.out) |- (G3.in 2);
+
+  \draw (G5.in 1) ++(-1,0.5) node {CY1=0.25};
+  \draw (G5.in 2) ++(-0.5,-0.7) node {CY1=0.656};
+
+  \draw[-latexslim] (G5.out) ++(0,0.25) -- ++(0,-0.5);
+
+  % \draw (G1) node[left=6pt] {G1};
+  % \draw (G2) node[left=6pt] {G2};
+  % \draw (G3) node[left=6pt] {G3};
+  % \draw (G4) node[left=6pt] {G4};
+
+  % \draw (G1.in 1) node[label=left:a] (a) {};
+  % \draw (G1.in 2) node[label=left:b] {};
+  % \draw (a |- G4) node[label=left:c] {} to[short, -*] (G2.in 2 |- G4);
+  % \draw (a |- G3.in 2) node[label=left:d] {} -- (G3.in 2);
+  % \draw (G2.in 1) node[label=e] {};
+  % \draw (G2.out) node[label=right:f] {};
+  % \draw (G3.out) node[label=right:g] {};
+  % \draw (G4.out) node[label=right:h] {};
+\end{circuitikz}
+\captionof{figure}{}
+\end{center}
