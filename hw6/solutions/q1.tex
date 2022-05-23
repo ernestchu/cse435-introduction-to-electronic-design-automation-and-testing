@@ -1,0 +1,14 @@
+
+\begin{enumerate}
+  \item Activate G5 SA0. Initial objective: G5's output = 1.
+  \item Backtrace to A. With an even inversion parity, A = 1. Simulation, objective not achieved.
+  \item Backtrace to B. With an even inversion parity, B = 1. Simulation, objective not achieved.
+  \item Backtrace to C. With an old inversion parity, C = 0. Simulation, objective achieved.
+  \item Propagate the fault. Objective: G7's second input = 0.
+  \item No more unknown primary input to backtrace to. Simulation, objective achieved.
+  \item Test generated, (A, B, C) = (1, 1, 0).
+
+\end{enumerate}
+
+\textbf{Answer:} (A, B, C) = (1, 1, 0).
+
