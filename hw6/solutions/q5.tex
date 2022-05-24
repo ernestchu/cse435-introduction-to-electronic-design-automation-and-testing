@@ -1,2 +1,4 @@
 
 A backtracing procedure maps the objective into a PI assignment that is likely to contribute to achieve the objective, while a backtracking procedure goes back to the last decision when encountering a conflict.
+
+Take the circuit above as an example, we backtrace to the primary inputs until they satisfy the given objective in the simulation. After each backtracing, if the assignment to the primary input conflicts with the objective, we undo the assignment and try another test pattern.
